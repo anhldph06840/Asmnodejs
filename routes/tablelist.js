@@ -6,7 +6,7 @@ const Users = new require('../models/userlogin');
 router.get('/', function(req, res, next) {
     Product.find({}).then((doc)=>{
        
-        res.render('product', { item: doc });
+        res.render('tablelist', { item: doc });
     })
     
   });
@@ -57,5 +57,10 @@ router.get('/logout', (req, res) => {
         res.redirect('/product')
     })
   })
+
+  router.get('/tablelist',function(req,res){
+    res.render('tablelist');
+  })
+
 
 module.exports = router;

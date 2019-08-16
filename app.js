@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 
 const app = express();
+app.listen(process.env.PORT || 3000);
 
 // Passport Config
 require('./config/passport')(passport);
@@ -58,8 +59,4 @@ app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 app.use('/product',require('./routes/product'));
 app.use('/user',require('./routes/user'));
-
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+app.use('/table',require('./routes/tablelist'));
